@@ -1,0 +1,42 @@
+{
+  "name": "Heart_Rate",
+  "version": "1.0.0",
+  "description": "A dashboard for company leaders to monitor admission progress and view graphical breakdowns of prospective and enrolled members.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "serve": "webpack-dev-server",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farookkhan/Heart_Rate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farookkhan/Heart_Rate/issues"
+  },
+  "homepage": "https://github.com/farookkhan/Heart_Rate#readme",
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "engines" : {
+    "node" : ">=6"
+  }
+}
