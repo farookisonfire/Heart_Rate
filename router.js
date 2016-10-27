@@ -7,9 +7,8 @@ module.exports = function routes(db){
 
   router.get('/', (req,res) => {
     myCollection.find().toArray((err, docs) => {
-      if (err) {
-        res.sendStatus(500)
-      }
+      if (err) return res.sendStatus(500)
+      console.log('In Get')
       res.json(docs)
     })
   })
