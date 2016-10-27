@@ -1,10 +1,10 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
-const Welcome = require('./welcome')
+const RootComponent = require('./root-component')
 
 ReactDOM.render(
   <div>
-    <Welcome/>
+    <RootComponent/>
   </div>,
   document.getElementById('root')
 )

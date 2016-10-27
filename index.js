@@ -11,19 +11,13 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     process.exit(1)
   }
 
+  // const enrolled = db.collection('enrolled')
+  // enrolled.insert(seedData, (err, result) => {
+  //   if(err)
+  // })
+
   const app = createApp(db)
   app.listen(PORT, () => {
     console.log('listening on Port: ' + PORT)
   })
 })
-
-
-// const express = require('express')
-//
-// const app = express()
-//
-// app.use(express.static('public'))
-// app.get('/api/data', (req,res) => {
-//   console.log('in get')
-//   res.send()
-// })
