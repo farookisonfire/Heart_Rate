@@ -1,18 +1,15 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
-const Welcome = require('./welcome')
+const RootComponent = require('./root-component')
+const store = require('../store')
+const { Provider } = require('react-redux')
+
 
 ReactDOM.render(
-  <div>
-    <Welcome/>
-  </div>,
+  <Provider store = {store}>
+    <div>
+      <RootComponent/>
+    </div>
+  </Provider>,
   document.getElementById('root')
 )
-
-
-fetch('/api/data')
-  .then(res => {
-    return res.json()
-  }).then(res => {
-     console.log(res)
-  })

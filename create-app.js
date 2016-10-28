@@ -11,14 +11,3 @@ module.exports = function createApp(db) {
 
   return app
 }
-
-
-// app.use(express.static('public'))
-// app.get('/api/data', (req,res) => {
-//   console.log('in get')
-//   res.send()
-// })
-//
-// app.listen(3030, () => {
-//   console.log('listening on PORT 3030')
-// })
