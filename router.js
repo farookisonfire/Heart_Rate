@@ -1,8 +1,9 @@
 const { Router } = require('express')
+const seedData = require('./src/seed-data')
 
 module.exports = function routes(db){
 
-  const myCollection = db.collection('project3')
+  const myCollection = db.collection('enrollment')
   const router = new Router()
 
   router.get('/', (req,res) => {
@@ -12,6 +13,9 @@ module.exports = function routes(db){
       }
       res.json(docs)
     })
+  })
+  router.get('/seed', (req, res) => {
+    res.send(seedData)
   })
   return router
 }

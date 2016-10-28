@@ -132,3 +132,5 @@ const seedDate = [
     enrollYear: '2016',
   },
 ]
+
+module.exports = seedDate
