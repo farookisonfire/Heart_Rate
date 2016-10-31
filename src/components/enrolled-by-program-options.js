@@ -1,7 +1,7 @@
 const Highcharts = require('highcharts')
 const React = require('react')
 
-exports.enrolledByProgramChart = () => {
+exports.enrolledByProgramChart = (enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health) => {
   return $(function () {
       $('#enrolled-by-program').highcharts({
           chart: {
@@ -51,20 +51,28 @@ exports.enrolledByProgramChart = () => {
               }
           },
           series: [{
-              name: '4 week',
-              data: [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+              name: 'YE - 1 week',
+              data: enrollmentProgram1
           }, {
-              name: '2 week',
-              data: [2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+              name: 'YE - 2 week',
+              data: enrollmentProgram2
           }, {
-              name: '1 week',
-              data: [3,3,3,3,3,3,3,3,3,3,3,3,3,3]
+              name: 'YE - 4 week',
+              data: enrollmentProgram4
           },
           {
-              name: 'Health',
-              data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4]
+              name: 'HI - 2 week',
+              data: enrollmentProgram2Health
+          },
+          {
+              name: 'HI - 4 week',
+              data: enrollmentProgram4Health
           }
           ]
       });
   });
 }
+
+exports.enrolledByProgramTitle = (
+  <h4>Enrolled by Program and Date</h4>
+)
