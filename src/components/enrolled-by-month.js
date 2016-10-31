@@ -16,7 +16,7 @@ const EnrolledByMonth = ({ enrolled2015, enrolled2016 }) =>{
     enrolledByMonthChart(enrolled2015, enrolled2016)
     return (
       <Panel style={panelStyle} footer={ enrolledByMonthChartTitle }>
-        <div id="container" style={{width: '400px'}}></div>
+        <div id="enrolled-by-month" style={{width: '400px'}}></div>
       </Panel>
       )}
 

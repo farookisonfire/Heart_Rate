@@ -1,7 +1,10 @@
 const initialState = {
   fetchingEnrolled: false,
   receivedEnrolled: false,
-  enrolled: []
+  enrolled: [],
+  fetchingEnrolledByProgram: false,
+  receivedEnrolledByProgram: false,
+  enrolledByProgram: []
 }
 
 module.exports = initialState
