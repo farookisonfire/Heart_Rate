@@ -4,6 +4,7 @@ const logo = require('../logo.png')
 const poster = require('../heart-rate-poster.png')
 const vid = require('../heart-rate-loop.mp4')
 const fonts = require('google-fonts')
+const EnrolledByProgram = require('./enrolled-by-program')
 
 fonts.add({
   'Ropa Sans': ['400', '400italic'],
@@ -54,6 +55,8 @@ const RootComponent = () =>
     </div>
   </div>
   <EnrolledByMonth/>
+  <hr></hr>
+  <EnrolledByProgram/>
 </div>
 
 module.exports = RootComponent

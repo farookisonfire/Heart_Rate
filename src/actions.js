@@ -14,3 +14,21 @@ exports.fetchEnrolled = () => {
         .then(json => dispatch(exports.receiveEnrolled(json)))
   }
 }
+
+exports.requestEnrolledByProgram = () => {
+  return { type: 'REQUEST_ENROLLED_BY_PROGRAM' }
+}
+
+exports.receiveEnrolledByProgram = (payload) => {
+  return { type: 'RECEIVE_ENROLLED_BY_PROGRAM', payload }
+}
+
+exports.fetchEnrolledByProgram = () => {
+  return (dispatch) => {
+    dispatch(exports.requestEnrolledByProgram())
+      return fetch('/api/data/enrolled-by-program')
+        .then(response => response.json())
+        .then(json => dispatch(exports.receiveEnrolledByProgram(json)))
+
+  }
+}

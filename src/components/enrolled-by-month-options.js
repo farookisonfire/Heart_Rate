@@ -3,7 +3,7 @@ const React = require('react')
 
 exports.enrolledByMonthChart = (data2015, data2016) => {
   return $(function () {
-    var myChart = Highcharts.chart('container', {
+    var myChart = Highcharts.chart('enrolled-by-month', {
         title: {
           text: ''
         },
