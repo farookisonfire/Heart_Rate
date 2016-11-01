@@ -32,3 +32,20 @@ exports.fetchEnrolledByProgram = () => {
 
   }
 }
+
+exports.requestApplicants = () => {
+  return { type: 'REQUEST_APPLICANTS' }
+}
+
+exports.receiveApplicants = (payload) => {
+  return { type: 'RECEIVED_APPLICANTS', payload }
+}
+
+exports.fetchApplicants = () => {
+  return (dispatch) => {
+    dispatch(exports.requestApplicants())
+      return fetch('/api/data/applicants')
+        .then(response => response.json())
+        .then(json => dispatch(exports.receiveApplicants(json)))
+  }
+}

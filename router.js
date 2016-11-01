@@ -5,6 +5,7 @@ module.exports = function routes(db){
 
   const enrolled = db.collection('enrollment')
   const enrolledByProgram = db.collection('enrollmentByProgram')
+  const applicants = db.collection('applications2017')
   const router = new Router()
 
   router.get('/', (req,res) => {
@@ -23,6 +24,13 @@ module.exports = function routes(db){
       res.json(docs)
       })
     })
+  router.get('/applicants', (req, res) => {
+    applicants.find().toArray((err, docs) => {
+      if (err) return res.sendStatus(500)
+      console.log(docs)
+      res.json(docs)
+    })
+  })
 
   return router
 }
