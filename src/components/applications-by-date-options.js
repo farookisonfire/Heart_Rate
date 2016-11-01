@@ -1,4 +1,6 @@
+const React = require('react')
 const Highcharts = require('highcharts')
+
 
 const newData = [
   [Date.UTC(2011,5,4),20],
@@ -8,7 +10,7 @@ const newData = [
   [Date.UTC(2016,5,3),40]
 ]
 
-function applicationsByDateChart() {
+exports.applicationsByDateChart = (chartData) => {
   return $(function () {
 
 
@@ -17,7 +19,7 @@ function applicationsByDateChart() {
                   zoomType: 'x'
               },
               title: {
-                  text: 'USD to EUR exchange rate over time'
+                  text: ''
               },
               subtitle: {
                   text: document.ontouchstart === undefined ?
@@ -64,11 +66,13 @@ function applicationsByDateChart() {
               series: [{
                   type: 'area',
                   name: 'USD to EUR',
-                  data: newData
+                  data: chartData
               }]
           });
        // here
   });
 }
 
-module.exports = applicationsByDateChart
+exports.applicationsByDateTitle = (
+  <h4>Applications By Date</h4>
+)
