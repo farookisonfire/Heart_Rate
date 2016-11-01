@@ -1,37 +1,56 @@
 const React = require('react')
+const { connect } = require('react-redux')
 const { Panel } = require('react-bootstrap')
-const applicationsByDateChart = require('./applications-by-date-options')
+const { applicationsByDateChart, applicationsByDateTitle } = require('./applications-by-date-options')
 
-const ApplicationsByDate = () => {
-  applicationsByDateChart()
+const panelStyle = {
+  width: '900px',
+  textAlign:'center',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginTop: '100px'
+}
+
+const ApplicationsByDate = ({ chartData }) => {
+  applicationsByDateChart(chartData)
   return (
-    <Panel>
+    <Panel style={panelStyle} footer={applicationsByDateTitle}>
       <div id="applications-by-date" style={{width: '800px'}}></div>
     </Panel>
   )
 }
 
-const mapStateToPropos = ({ applicants }) => {
-
-let applicationsByDate = [];
-applicants.map(applicant => {
-  let date = Date.UTC(applicant.submitDate.split(' ')[0].replace(/-/g, ','))
-  applicationsByDate.map(application => {
-    if (application.indexOf(date) === )
-  })
 
 
-  // if ( applicationsByDate.indexOf(date) === -1 ) {
-  //   let tempPair = [date, 0];
-  //   applicationsByDate.push(tempPair);
-  // } else {
-  //   applicationsByDate[applicationsByDate.indexOf(date)][1]
-  // }
-}) ;
+const mapStateToProps = ({ applicants }) => {
 
+  var submitDates = []
+	applicants.map(applicant => {
+		let date = applicant.submitDate.split(' ')[0]
+      .split('-')
+        .map(date => parseInt(date))
+		let utcDate = Date.UTC(date[0], date[1]-1, date[2])
+		submitDates.push(utcDate)
+	})
+
+	submitDates.sort()
+	var chartData = []
+	var previous
+
+	for (var i = 0 ; i < submitDates.length ; i++ ) {
+		if (submitDates[i] !== previous) {
+			let dateAndCount = { date:submitDates[i], count:1 }
+			chartData.push(dateAndCount)
+		} else {
+			chartData[chartData.length - 1].count++
+		}
+		previous = submitDates[i]
+	}
+
+  chartData = chartData.map(data => [data.date, data.count])
   return {
-    applicationsByDate
+    chartData
   }
 }
 
-module.exports = ApplicationsByDate
+module.exports = connect(mapStateToProps)(ApplicationsByDate)

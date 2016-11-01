@@ -1,8 +1,7 @@
 const React = require('react')
 const { connect } = require('react-redux')
 const { Panel } = require('react-bootstrap')
-const { enrolledByMonthChart } = require('./enrolled-by-month-options')
-const { enrolledByMonthChartTitle } = require('./enrolled-by-month-options')
+const { enrolledByMonthChart, enrolledByMonthChartTitle } = require('./enrolled-by-month-options')
 
 const panelStyle = {
   width: '500px',
