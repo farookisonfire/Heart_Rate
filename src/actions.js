@@ -51,3 +51,7 @@ exports.fetchApplicants = () => {
         .then(json => dispatch(exports.receiveApplicants(json)))
   }
 }
+
+exports.goHome = () => {
+  return { type: 'SHOW_HOME' }
+}

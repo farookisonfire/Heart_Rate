@@ -36,3 +36,17 @@ exports.panelStyleApplied = {
   boxShadow: '10px 8px 5px #333',
   borderRadius: '8px'
 }
+
+exports.panelStyleHome = {
+  backgroundColor: 'linear-gradient(to bottom right, #EDF5FC, #445467)',
+  opacity: '.85',
+  borderRadius: '2px',
+  margin: '0',
+}
+
+exports.panelStyleHomeBig = {
+  backgroundColor: 'linear-gradient(to bottom right, #EDF5FC, #445467)',
+  opacity: '.85',
+  borderRadius: '2px',
+  boxShadow: '10px 8px 5px #333',
+}

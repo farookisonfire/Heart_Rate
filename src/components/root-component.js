@@ -11,7 +11,10 @@ const ApplicationsByDate = require('./applications-by-date')
 const EnrolledButton = require('./buttons/enrolled-button')
 const ProgramButton = require('./buttons/program-button')
 const AppliedButton = require('./buttons/applied-button')
+const HomeButton = require('./buttons/home-button')
+const Home = require('./home')
 const { showEnrolled } = require('../actions')
+
 
 fonts.add({
   'Ropa Sans': ['400', '400italic'],
@@ -48,7 +51,7 @@ const logoDivStyle = {
   borderBottom: '2px solid grey'
 }
 
-const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied }) =>
+const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied, displayHome }) =>
 <div>
 
   <div id="vid-div">
@@ -57,11 +60,13 @@ const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingAp
     </video>
     <div id="overlay">
       <div style={{textAlign:'center'}}>
+        <HomeButton/>
         <AppliedButton/>
         <EnrolledButton/>
         <ProgramButton/>
       </div>
       <div>
+        { displayHome && <Home/> }
         { displayEnrolled && (fetchingEnrolled ? <Spin/> : <EnrolledByMonth/>) }
         { displayProgram && (fetchingEnrolledByProgram ? <Spin/> : <EnrolledByProgram/>) }
         { displayApplied && (fetchingApplicants ? <Spin/> : <ApplicationsByDate/>) }
@@ -70,14 +75,15 @@ const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingAp
   </div>
 </div>
 
-const mapStateToProps = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied }) =>{
+const mapStateToProps = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied, displayHome}) =>{
 return {
   fetchingEnrolled,
   fetchingEnrolledByProgram,
   fetchingApplicants,
   displayEnrolled,
   displayProgram,
-  displayApplied
+  displayApplied,
+  displayHome
   }
 }
 

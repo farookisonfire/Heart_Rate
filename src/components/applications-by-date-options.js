@@ -65,7 +65,7 @@ exports.applicationsByDateChart = (chartData) => {
 
               series: [{
                   type: 'area',
-                  name: 'USD to EUR',
+                  name: 'Applicants',
                   data: chartData
               }]
           });
