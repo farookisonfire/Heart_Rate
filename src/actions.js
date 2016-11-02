@@ -49,3 +49,8 @@ exports.fetchApplicants = () => {
         .then(json => dispatch(exports.receiveApplicants(json)))
   }
 }
+
+exports.showEnrolled = () => {
+  console.log('action fired')
+  return {type: 'SHOW_ENROLLED'}
+}

@@ -4,6 +4,8 @@ const fetchingEnrolled = (state = false, { type }) => {
   switch(type){
     case 'REQUEST_ENROLLED':
       return true
+    case 'RECEIVED_ENROLLED':
+      return false
     default:
       return state
   }
@@ -31,6 +33,8 @@ const fetchingEnrolledByProgram = ( state=false, { type }) => {
   switch(type) {
     case 'REQUEST_ENROLLED_BY_PROGRAM':
       return true
+    case 'RECEIVE_ENROLLED_BY_PROGRAM':
+      return false
     default:
       return state
   }
@@ -58,6 +62,8 @@ const fetchingApplicants = (state = false, { type }) => {
   switch(type){
     case 'REQUEST_APPLICANTS':
       return true;
+    case 'RECEIVED_APPLICANTS':
+      return false
     default:
       return state
   }
@@ -75,10 +81,18 @@ const receivedApplicants = (state = false, { type } ) => {
 const applicants = (state = [], { type, payload } ) => {
   switch(type) {
     case 'RECEIVED_APPLICANTS':
-      console.log(payload)
       return state.concat(payload)
     default:
       return state
+  }
+}
+
+const displayEnrolled = (state = false, { type }) => {
+  switch(type){
+    case 'SHOW_ENROLLED':
+      return true;
+    default:
+      return state;
   }
 }
 
@@ -91,7 +105,8 @@ const rootReducer = combineReducers({
   enrolledByProgram,
   fetchingApplicants,
   receivedApplicants,
-  applicants
+  applicants,
+  displayEnrolled
 })
 
 module.exports = rootReducer
