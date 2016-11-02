@@ -1,6 +1,6 @@
 exports.panelStyleEnrolled = {
   width: '600px',
-  height: '400px',
+  height: '390px',
   textAlign:'center',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -13,7 +13,7 @@ exports.panelStyleEnrolled = {
 
 exports.panelStyleProgram = {
   width: '800px',
-  height: '400px',
+  height: '390px',
   textAlign:'center',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -26,7 +26,7 @@ exports.panelStyleProgram = {
 
 exports.panelStyleApplied = {
   width: '1000px',
-  height: '400px',
+  height: '390px',
   textAlign:'center',
   marginLeft: 'auto',
   marginRight: 'auto',

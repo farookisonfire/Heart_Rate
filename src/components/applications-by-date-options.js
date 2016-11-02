@@ -74,5 +74,5 @@ exports.applicationsByDateChart = (chartData) => {
 }
 
 exports.applicationsByDateTitle = (
-  <h4>Applications By Date</h4>
+  <h5>Applications By Date</h5>
 )
