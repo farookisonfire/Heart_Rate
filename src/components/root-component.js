@@ -1,11 +1,17 @@
 const React = require('react')
-const EnrolledByMonth = require('./enrolled-by-month')
+const { connect } = require('react-redux')
 const logo = require('../logo.png')
 const poster = require('../heart-rate-poster.png')
 const vid = require('../heart-rate-loop.mp4')
 const fonts = require('google-fonts')
+const EnrolledByMonth = require('./enrolled-by-month')
+const Spin = require('./spinner')
 const EnrolledByProgram = require('./enrolled-by-program')
 const ApplicationsByDate = require('./applications-by-date')
+const EnrolledButton = require('./buttons/enrolled-button')
+const ProgramButton = require('./buttons/program-button')
+const AppliedButton = require('./buttons/applied-button')
+const { showEnrolled } = require('../actions')
 
 fonts.add({
   'Ropa Sans': ['400', '400italic'],
@@ -22,11 +28,11 @@ const headingStyle = {
   fontSize: '100px',
   zIndex: '1000',
   position: 'absolute',
-  top: '200px',
-  left: '300px',
+  top: '150px',
   color: 'white',
   fontFamily: 'Raleway',
-  fontWeight: '100'
+  fontWeight: '100',
+  width:'100%'
 }
 
 const logoStyle = {
@@ -42,24 +48,40 @@ const logoDivStyle = {
   borderBottom: '2px solid grey'
 }
 
-const RootComponent = () =>
+const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied }) =>
 <div>
-  <div style={logoDivStyle}>
-    <img style={logoStyle} src={logo}/>
-  </div>
+
   <div id="vid-div">
     <video loop muted autoPlay poster={poster} id="vid">
       <source src={vid} type="video/mp4"/>
     </video>
-    <h1 style={ headingStyle }>AT A GLANCE</h1>
     <div id="overlay">
+      <div style={{textAlign:'center'}}>
+        <AppliedButton/>
+        <EnrolledButton/>
+        <ProgramButton/>
+      </div>
+      <div>
+        { displayEnrolled && (fetchingEnrolled ? <Spin/> : <EnrolledByMonth/>) }
+        { displayProgram && (fetchingEnrolledByProgram ? <Spin/> : <EnrolledByProgram/>) }
+        { displayApplied && (fetchingApplicants ? <Spin/> : <ApplicationsByDate/>) }
+      </div>
     </div>
   </div>
-  <EnrolledByMonth/>
-  <hr></hr>
-  <EnrolledByProgram/>
-  <hr></hr>
-  <ApplicationsByDate/>
 </div>
 
-module.exports = RootComponent
+const mapStateToProps = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied }) =>{
+return {
+  fetchingEnrolled,
+  fetchingEnrolledByProgram,
+  fetchingApplicants,
+  displayEnrolled,
+  displayProgram,
+  displayApplied
+  }
+}
+
+
+
+
+module.exports = connect(mapStateToProps)(RootComponent)

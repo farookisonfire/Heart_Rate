@@ -6,6 +6,8 @@ exports.receiveEnrolled = (payload) => {
   return { type: 'RECEIVED_ENROLLED', payload }
 }
 
+
+
 exports.fetchEnrolled = () => {
   return (dispatch) => {
     dispatch(exports.requestEnrolled())

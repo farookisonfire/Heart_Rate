@@ -36,7 +36,11 @@ module.exports = {
   {
     test: /\.(webm|mp4)$/,
     loader: 'file'
-  }
+  },
+  {
+    test: /\.css$/, loader: "style-loader!css-loader"
+  },
+
 ]
 }
 }

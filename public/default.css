@@ -1,19 +1,19 @@
 #vid-div {
   position: relative;
-  max-height: 500px;
+  /*max-height: 100vh;*/
   overflow: hidden;
 }
 
 #vid {
-  max-height:100%;
-  transform: translate(-15em, -20em);
+  min-height:700px;
+  max-height: 100vh;
 }
 
 #overlay {
   width: 100%;
-  height: 600px;
-  background-color: rgba(255,200,200,0.9);
+  height: 100%;
+  background-color: rgba(82,100,120,0.8);
   z-index: 999;
   position:absolute;
-  top:73px
+  top:0
 }

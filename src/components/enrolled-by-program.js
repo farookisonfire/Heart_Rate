@@ -2,21 +2,15 @@ const React = require('react')
 const { enrolledByProgramChart, enrolledByProgramTitle } = require('./enrolled-by-program-options')
 const { Panel } = require('react-bootstrap')
 const { connect } = require('react-redux')
+const { panelStyleProgram : panelStyle } = require('./styles/panel-style')
 
-const panelStyle = {
-  width: '750px',
-  textAlign:'center',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '100px'
-}
 
 const EnrolledByProgram = ({ enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health }) => {
 
   enrolledByProgramChart(enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health)
   return (
     <Panel style={panelStyle} footer={enrolledByProgramTitle}>
-      <div id="enrolled-by-program" style={{width: '700px'}}></div>
+      <div id="enrolled-by-program" style={{width: '100%', height:'300px'}}></div>
     </Panel>
     )
 }
