@@ -2,20 +2,14 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Panel } = require('react-bootstrap')
 const { applicationsByDateChart, applicationsByDateTitle } = require('./applications-by-date-options')
+const { panelStyleApplied : panelStyle } = require('./styles/panel-style')
 
-const panelStyle = {
-  width: '900px',
-  textAlign:'center',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '100px'
-}
 
 const ApplicationsByDate = ({ chartData }) => {
   applicationsByDateChart(chartData)
   return (
     <Panel style={panelStyle} footer={applicationsByDateTitle}>
-      <div id="applications-by-date" style={{width: '800px'}}></div>
+      <div id="applications-by-date" style={{width: '100%', height:'300px'}}></div>
     </Panel>
   )
 }

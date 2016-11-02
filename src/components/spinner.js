@@ -1,17 +1,13 @@
 const React = require('react')
 const { Panel } = require('react-bootstrap')
+const Spinner = require('react-spinkit')
 
-const panelStyle = {
-  width: '500px',
-  textAlign:'center',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '100px'
-}
 
-const Spinner = () =>
-  <Panel style={panelStyle}>
-    <h3>Loading...</h3>
-  </Panel>
+const Spin = () =>
+  <div style={{textAlign:'center', marginTop:'150px'}}>
+    <div style = {{display:'inline-block'}}>
+      <Spinner spinnerName="cube-grid" />
+    </div>
+  </div>
 
-module.exports = Spinner
+module.exports = Spin

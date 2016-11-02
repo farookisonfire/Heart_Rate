@@ -5,12 +5,12 @@ const poster = require('../heart-rate-poster.png')
 const vid = require('../heart-rate-loop.mp4')
 const fonts = require('google-fonts')
 const EnrolledByMonth = require('./enrolled-by-month')
-const Spinner = require('./spinner')
+const Spin = require('./spinner')
 const EnrolledByProgram = require('./enrolled-by-program')
 const ApplicationsByDate = require('./applications-by-date')
 const EnrolledButton = require('./buttons/enrolled-button')
-const { ProgramButton } = require('./buttons/program-button')
-const { AppliedButton } = require('./buttons/applied-button')
+const ProgramButton = require('./buttons/program-button')
+const AppliedButton = require('./buttons/applied-button')
 const { showEnrolled } = require('../actions')
 
 fonts.add({
@@ -48,7 +48,7 @@ const logoDivStyle = {
   borderBottom: '2px solid grey'
 }
 
-const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled }) =>
+const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied }) =>
 <div>
 
   <div id="vid-div">
@@ -62,23 +62,22 @@ const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingAp
         <ProgramButton/>
       </div>
       <div>
-        { displayEnrolled ? (fetchingEnrolled ? <Spinner/> : <EnrolledByMonth/>) : <div></div> }
+        { displayEnrolled && (fetchingEnrolled ? <Spin/> : <EnrolledByMonth/>) }
+        { displayProgram && (fetchingEnrolledByProgram ? <Spin/> : <EnrolledByProgram/>) }
+        { displayApplied && (fetchingApplicants ? <Spin/> : <ApplicationsByDate/>) }
       </div>
     </div>
   </div>
-
-  <hr></hr>
-  { fetchingEnrolledByProgram ? <Spinner/> : <EnrolledByProgram/> }
-  <hr></hr>
-  { fetchingApplicants ? <Spinner/> : <ApplicationsByDate/>}
 </div>
 
-const mapStateToProps = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled }) =>{
+const mapStateToProps = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingApplicants, displayEnrolled, displayProgram, displayApplied }) =>{
 return {
   fetchingEnrolled,
   fetchingEnrolledByProgram,
   fetchingApplicants,
-  displayEnrolled
+  displayEnrolled,
+  displayProgram,
+  displayApplied
   }
 }
 

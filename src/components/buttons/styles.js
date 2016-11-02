@@ -2,7 +2,7 @@ const styles = {
   smallIcon: {
     width: 30,
     height: 30,
-    color: 'dark-grey'
+    color: '#FDF4F1'
   },
   small: {
     width: 72,

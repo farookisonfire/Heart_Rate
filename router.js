@@ -21,6 +21,7 @@ module.exports = function routes(db){
   router.get('/enrolled-by-program', (req, res) => {
     enrolledByProgram.find().toArray((err, docs) => {
       if (err) return res.sendStatus(500)
+
       res.json(docs)
       })
     })

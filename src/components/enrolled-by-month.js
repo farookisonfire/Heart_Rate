@@ -2,20 +2,13 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Panel } = require('react-bootstrap')
 const { enrolledByMonthChart, enrolledByMonthChartTitle } = require('./enrolled-by-month-options')
-
-const panelStyle = {
-  width: '500px',
-  textAlign:'center',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginTop: '100px'
-}
+const { panelStyleEnrolled : panelStyle } = require('./styles/panel-style')
 
 const EnrolledByMonth = ({ enrolled2015, enrolled2016 }) =>{
     enrolledByMonthChart(enrolled2015, enrolled2016)
     return (
       <Panel style={panelStyle} footer={ enrolledByMonthChartTitle }>
-        <div id="enrolled-by-month" style={{width: '400px'}}></div>
+        <div id="enrolled-by-month" style={{width: '100%', height:'300px'}}></div>
       </Panel>
       )}
 

@@ -6,6 +6,8 @@ exports.receiveEnrolled = (payload) => {
   return { type: 'RECEIVED_ENROLLED', payload }
 }
 
+
+
 exports.fetchEnrolled = () => {
   return (dispatch) => {
     dispatch(exports.requestEnrolled())
@@ -48,9 +50,4 @@ exports.fetchApplicants = () => {
         .then(response => response.json())
         .then(json => dispatch(exports.receiveApplicants(json)))
   }
-}
-
-exports.showEnrolled = () => {
-  console.log('action fired')
-  return {type: 'SHOW_ENROLLED'}
 }
