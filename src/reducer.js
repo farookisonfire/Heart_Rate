@@ -104,6 +104,8 @@ const displayEnrolled = (state = false, { type }) => {
       return false;
     case 'REQUEST_APPLICANTS':
       return false;
+    case 'SHOW_HOME':
+      return false;
     default:
       return state;
   }
@@ -117,6 +119,8 @@ const displayProgram = (state = false, { type }) => {
       return false;
     case 'REQUEST_APPLICANTS':
       return false;
+    case 'SHOW_HOME':
+      return false;
     default:
       return state
   }
@@ -126,6 +130,23 @@ const displayApplied = (state = false, { type }) => {
   switch(type) {
     case 'REQUEST_APPLICANTS':
       return true;
+    case 'REQUEST_ENROLLED':
+      return false;
+    case 'REQUEST_ENROLLED_BY_PROGRAM':
+      return false;
+    case 'SHOW_HOME':
+      return false;
+    default:
+      return state
+  }
+}
+
+const displayHome = (state = true, { type }) => {
+  switch(type) {
+    case 'SHOW_HOME':
+      return true;
+    case 'REQUEST_APPLICANTS':
+      return false;
     case 'REQUEST_ENROLLED':
       return false;
     case 'REQUEST_ENROLLED_BY_PROGRAM':
@@ -147,7 +168,8 @@ const rootReducer = combineReducers({
   applicants,
   displayEnrolled,
   displayProgram,
-  displayApplied
+  displayApplied,
+  displayHome
 })
 
 module.exports = rootReducer
