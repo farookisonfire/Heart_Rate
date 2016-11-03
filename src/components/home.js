@@ -3,7 +3,7 @@ const { Grid, Row, Col, Panel } = require('react-bootstrap')
 const { panelStyleHome : panelStyle, panelStyleHomeBig : panelStyleBig } = require('./styles/panel-style')
 const { connect } = require('react-redux')
 const HomeDay = require('./home-day')
-
+const HomeEnrolled = require('./home-enrolled')
 
 const stats = {
   color: '#FF784F',
@@ -41,12 +41,7 @@ const Home = ({ totalApplied }) =>
           </Row>
           <Row className="show-grid">
             <Col xs={12}>
-              <Panel style={panelStyle}>ROW 3</Panel>
-            </Col>
-          </Row>
-          <Row className="show-grid">
-            <Col xs={12}>
-              <Panel style={panelStyle}>ROW 4</Panel>
+              <HomeEnrolled/>
             </Col>
           </Row>
         </div>
