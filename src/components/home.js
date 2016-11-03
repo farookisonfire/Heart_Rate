@@ -4,6 +4,7 @@ const { panelStyleHome : panelStyle, panelStyleHomeBig : panelStyleBig } = requi
 const { connect } = require('react-redux')
 const HomeDay = require('./home-day')
 const HomeEnrolled = require('./home-enrolled')
+const UniversityCount = require('./home-universities')
 
 const stats = {
   color: '#FF784F',
@@ -42,6 +43,11 @@ const Home = ({ totalApplied }) =>
           <Row className="show-grid">
             <Col xs={12}>
               <HomeEnrolled/>
+            </Col>
+          </Row>
+          <Row className="show-grid">
+            <Col xs={12}>
+              <UniversityCount/>
             </Col>
           </Row>
         </div>
