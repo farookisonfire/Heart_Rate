@@ -3,7 +3,7 @@ const createApp = require('./create-app')
 
 
 // const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/six'
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://fayahmon:changeDgame88@ds031607.mlab.com:31607/oneheartsource'
+const MONGODB_URI = process.env.PROD_MONGODB || 'mongodb://fayahmon:changeDgame88@ds031607.mlab.com:31607/oneheartsource'
 const PORT =  process.env.PORT || 3030
 
 
