@@ -22,10 +22,18 @@
   },
   "homepage": "https://github.com/farookkhan/Heart_Rate#readme",
   "dependencies": {
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "body-parser": "^1.15.2",
+    "css-loader": "^0.25.0",
     "express": "^4.14.0",
+    "file-loader": "^0.9.0",
     "google-fonts": "^1.0.0",
     "highcharts": "^5.0.2",
+    "image-webpack-loader": "^3.0.0",
+    "img-loader": "^1.3.1",
     "leaflet": "^0.7.0",
     "material-ui": "^0.16.1",
     "mongodb": "^2.2.11",
@@ -39,17 +47,10 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
-    "babel-core": "^6.18.0",
-    "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "image-webpack-loader": "^3.0.0",
-    "img-loader": "^1.3.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "whatwg-fetch": "^1.0.0"
   },
   "engines": {
     "node": ">=6"

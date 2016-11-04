@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 exports.requestEnrolled = () => {
   return { type: 'REQUEST_ENROLLED'}
 }

@@ -1,6 +1,6 @@
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: './src/components/app.js',
+  entry: ['whatwg-fetch','./src/components/app.js'],
   output: {
     path: './public',
     filename: 'bundle.js'
