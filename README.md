@@ -12,6 +12,6 @@ Goal: View admission progress, compare recruitment methods, compare years.
 - Continuous Integration with Travis CI
 - Other Technologies/Libraries Implemented: MongoDB, Highcharts, React-Bootstrap
 
-![Alt text](/../screenshots/screenshots/stats.png?raw=true)
+![Alt text](https://s3.amazonaws.com/heart-rate/Screen+Shot+2016-11-04+at+10.12.18+AM.png)
 
-![Alt text](/../screenshots/screenshots/apps.png?raw=true)
+![Alt text](https://s3.amazonaws.com/heart-rate/Screen+Shot+2016-11-04+at+10.13.01+AM.png)
