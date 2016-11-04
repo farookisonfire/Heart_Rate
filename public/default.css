@@ -1,12 +1,12 @@
 #vid-div {
   position: relative;
-  /*max-height: 100vh;*/
   overflow: hidden;
 }
 
 #vid {
   min-height:700px;
   max-height: 100vh;
+  min-width:100%;
 }
 
 #overlay {

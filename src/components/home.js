@@ -24,7 +24,7 @@ function numberWithCommas(x) {
 const Home = ({ totalApplied }) =>
 <Grid style={{marginTop: '100px'}}>
   <Row className="show-grid">
-    <Col xs={4} xsOffset={4}>
+    <Col style={{width:'350px', marginLeft:'auto', marginRight:'auto'}}>
       <div className="panel panel-default" style={panelStyleBig}>
         <div className="panel-body" style={{padding:'0'}}>
           <Row className="show-grid">
