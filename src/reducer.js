@@ -1,4 +1,5 @@
 const { combineReducers } = require('redux')
+const { responsiveStateReducer } = require('redux-responsive')
 
 const fetchingEnrolled = (state = false, { type }) => {
   switch(type){
@@ -157,6 +158,7 @@ const displayHome = (state = true, { type }) => {
 }
 
 const rootReducer = combineReducers({
+  browser: responsiveStateReducer,
   fetchingEnrolled,
   receivedEnrolled,
   enrolled,

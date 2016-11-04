@@ -2,13 +2,17 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Panel } = require('react-bootstrap')
 const { applicationsByDateChart, applicationsByDateTitle } = require('./applications-by-date-options')
-const { panelStyleApplied : panelStyle } = require('./styles/panel-style')
+const { panelStyle, panelWidth } = require('./styles/panel-style')
 
 
-const ApplicationsByDate = ({ chartData }) => {
+
+
+
+const ApplicationsByDate = ({ chartData, browser }) => {
   applicationsByDateChart(chartData)
+
   return (
-    <Panel style={panelStyle} footer={applicationsByDateTitle}>
+    <Panel style={panelStyle(panelWidth(browser))} footer={applicationsByDateTitle}>
       <div id="applications-by-date" style={{width: '100%', height:'300px'}}></div>
     </Panel>
   )
@@ -16,7 +20,7 @@ const ApplicationsByDate = ({ chartData }) => {
 
 
 
-const mapStateToProps = ({ applicants }) => {
+const mapStateToProps = ({ applicants, browser }) => {
 
   var submitDates = []
 	applicants.map(applicant => {
@@ -43,7 +47,8 @@ const mapStateToProps = ({ applicants }) => {
 
   chartData = chartData.map(data => [data.date, data.count])
   return {
-    chartData
+    chartData,
+    browser
   }
 }
 

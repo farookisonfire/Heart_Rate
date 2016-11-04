@@ -2,20 +2,20 @@ const React = require('react')
 const { enrolledByProgramChart, enrolledByProgramTitle } = require('./enrolled-by-program-options')
 const { Panel } = require('react-bootstrap')
 const { connect } = require('react-redux')
-const { panelStyleProgram : panelStyle } = require('./styles/panel-style')
+const { panelStyle, panelWidth } = require('./styles/panel-style')
 
 
-const EnrolledByProgram = ({ enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health }) => {
+const EnrolledByProgram = ({ enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health, browser }) => {
 
   enrolledByProgramChart(enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health)
   return (
-    <Panel style={panelStyle} footer={enrolledByProgramTitle}>
+    <Panel style={panelStyle(panelWidth(browser))} footer={enrolledByProgramTitle}>
       <div id="enrolled-by-program" style={{width: '100%', height:'300px'}}></div>
     </Panel>
     )
 }
 
-const mapStateToProps = ({ enrolledByProgram }) => {
+const mapStateToProps = ({ enrolledByProgram, browser }) => {
 
 let enrollmentProgram1 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 let enrollmentProgram2 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -161,7 +161,8 @@ enrolledByProgram.map(enrollee => {
     enrollmentProgram2,
     enrollmentProgram4,
     enrollmentProgram2Health,
-    enrollmentProgram4Health
+    enrollmentProgram4Health,
+    browser
   }
 }
 

@@ -2,17 +2,17 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Panel } = require('react-bootstrap')
 const { enrolledByMonthChart, enrolledByMonthChartTitle } = require('./enrolled-by-month-options')
-const { panelStyleEnrolled : panelStyle } = require('./styles/panel-style')
+const { panelStyle, panelWidth } = require('./styles/panel-style')
 
-const EnrolledByMonth = ({ enrolled2015, enrolled2016 }) =>{
+const EnrolledByMonth = ({ enrolled2015, enrolled2016, browser }) =>{
     enrolledByMonthChart(enrolled2015, enrolled2016)
     return (
-      <Panel style={panelStyle} footer={ enrolledByMonthChartTitle }>
+      <Panel style={panelStyle(panelWidth(browser))} footer={ enrolledByMonthChartTitle }>
         <div id="enrolled-by-month" style={{width: '100%', height:'300px'}}></div>
       </Panel>
       )}
 
-const mapStateToProps = ({ enrolled }) => {
+const mapStateToProps = ({ enrolled, browser }) => {
 
   let enrollmentByMonth2015 = [0,0,0,0,0,0,0,0,0,0,0,0]
   let enrollmentByMonth2016 = [0,0,0,0,0,0,0,0,0,0,0,0]
@@ -84,7 +84,8 @@ const mapStateToProps = ({ enrolled }) => {
 
   return {
     enrolled2015: enrollmentByMonth2015,
-    enrolled2016: enrollmentByMonth2016
+    enrolled2016: enrollmentByMonth2016,
+    browser
   }
 }
 
