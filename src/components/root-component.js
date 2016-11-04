@@ -55,7 +55,7 @@ const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingAp
 <div>
 
   <div id="vid-div">
-    <video loop muted autoPlay poster={poster} id="vid">
+    <video loop muted autoPlay poster={poster} controls={true} id="vid">
       <source src={vid} type="video/mp4"/>
     </video>
     <div id="overlay">
