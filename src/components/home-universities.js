@@ -3,7 +3,7 @@ const { connect } = require('react-redux')
 
 const stats = {
   color: '#FF784F',
-  marginLeft: '135px',
+  marginLeft: '115px',
   fontWeight: '400',
   fontSize: '1.25em'
 }
