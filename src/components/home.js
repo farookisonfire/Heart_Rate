@@ -1,11 +1,10 @@
 const React = require('react')
 const { Grid, Row, Col, Panel } = require('react-bootstrap')
 const { panelStyleHome : panelStyle, panelStyleHomeBig : panelStyleBig } = require('./styles/panel-style')
-const HomeApplied = require('./home-applied')
+const { connect } = require('react-redux')
 const HomeDay = require('./home-day')
 const HomeEnrolled = require('./home-enrolled')
 const UniversityCount = require('./home-universities')
-
 
 const stats = {
   color: '#FF784F',
@@ -18,6 +17,10 @@ const statsTitle = {
   marginLeft: '15px',
 }
 
+function numberWithCommas(x) {
+    return x.toLocaleString()
+}
+
 const Home = ({ totalApplied }) =>
 <Grid style={{marginTop: '100px'}}>
   <Row className="show-grid">
@@ -26,7 +29,10 @@ const Home = ({ totalApplied }) =>
         <div className="panel-body" style={{padding:'0'}}>
           <Row className="show-grid">
             <Col xs={12}>
-              <HomeApplied/>
+              <Panel style={panelStyle}>
+                <span style={statsTitle}>TOTAL APPLIED</span>
+                <span style={stats}>{numberWithCommas(totalApplied)}</span>
+              </Panel>
             </Col>
           </Row>
           <Row className="show-grid">
@@ -50,5 +56,10 @@ const Home = ({ totalApplied }) =>
   </Row>
 </Grid>
 
+const mapStateToProps = ({ applicants }) => {
+  return {
+      totalApplied: applicants.length
+  }
+}
 
-module.exports = Home
+module.exports = connect(mapStateToProps)(Home)
