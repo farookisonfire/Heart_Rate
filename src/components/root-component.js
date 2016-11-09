@@ -14,7 +14,7 @@ const AppliedButton = require('./buttons/applied-button')
 const HomeButton = require('./buttons/home-button')
 const Home = require('./home')
 const { showEnrolled } = require('../actions')
-
+const Anything = require('./map')
 
 fonts.add({
   'Ropa Sans': ['400', '400italic'],
@@ -65,6 +65,7 @@ const RootComponent = ({ fetchingEnrolled, fetchingEnrolledByProgram, fetchingAp
         <EnrolledButton/>
         <ProgramButton/>
       </div>
+      <Anything/>
       <div>
         { displayHome && <Home/> }
         { displayEnrolled && (fetchingEnrolled ? <Spin/> : <EnrolledByMonth/>) }
@@ -86,8 +87,5 @@ return {
   displayHome
   }
 }
-
-
-
 
 module.exports = connect(mapStateToProps)(RootComponent)

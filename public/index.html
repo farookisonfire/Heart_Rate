@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="default.css"/>
@@ -9,7 +10,11 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="map-container"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL73UI9TqnJ7zpCwdtkJOp9c9R36eNyyY&sesnor=false">
+    </script>
     <script src="bundle.js"></script>
   </body>
 </html>

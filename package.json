@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/farookkhan/Heart_Rate#readme",
   "dependencies": {
+    "auth0-lock": "^10.5.1",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
     "babel-preset-es2015": "^6.18.0",
@@ -34,7 +35,7 @@
     "highcharts": "^5.0.2",
     "image-webpack-loader": "^3.0.0",
     "img-loader": "^1.3.1",
-    "leaflet": "^0.7.0",
+    "leaflet": "^0.7.7",
     "material-ui": "^0.16.1",
     "mongodb": "^2.2.11",
     "react": "^15.3.2",
