@@ -4,14 +4,53 @@ const { Panel } = require('react-bootstrap')
 const { connect } = require('react-redux')
 const { panelStyle, panelWidth } = require('./styles/panel-style')
 
+// const UniversityCount = ({ universityCount }) =>
+// <div className = "panel panel-default" style={{marginBottom:'0'}}>
+//   <div className = "panel-body">
+//     <span style={statsTitle}>TOTAL UNIVERSITIES</span>
+//     <span style={stats}>{universityCount}</span>
+//   </div>
+// </div>
 
-const EnrolledByProgram = ({ enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health, browser }) => {
+const stats = {
+  color: '#FF784F',
+  marginLeft: '135px',
+  fontWeight: '400',
+  fontSize: '1.25em'
+}
+
+const statsTitle = {
+  marginLeft: '15px',
+}
+
+const dataPoint = (dataName, data) => {
+  return (
+    <div className="panel panel-default">
+      <div className="panel-body">
+        <span style={ statsTitle }>{ dataName }</span>
+        <span style={ stats }>{ data }</span>
+      </div>
+    </div>
+  )
+}
+
+
+const EnrolledByProgram = ({ enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health, enrollmentData, browser }) => {
 
   enrolledByProgramChart(enrollmentProgram1, enrollmentProgram2, enrollmentProgram4, enrollmentProgram2Health, enrollmentProgram4Health)
   return (
-    <Panel style={panelStyle(panelWidth(browser))} footer={enrolledByProgramTitle}>
-      <div id="enrolled-by-program" style={{width: '100%', height:'300px'}}></div>
-    </Panel>
+    <div>
+      <Panel style={panelStyle(panelWidth(browser))} footer={enrolledByProgramTitle}>
+        <div id="enrolled-by-program" style={{width: '100%', height:'300px'}}></div>
+      </Panel>
+      { dataPoint('Youth Empowerment', enrollmentData.totalYE) }
+      { dataPoint('Health Innovation', enrollmentData.totalHI) }
+      { dataPoint('Youth Empowerment - 1 week', enrollmentData.oneWeekYE) }
+      { dataPoint('Youth Empowerment - 2 week', enrollmentData.twoWeekYE) }
+      { dataPoint('Youth Empowerment - 4 week', enrollmentData.fourWeekYE) }
+      { dataPoint('Health Innovation - 2 week', enrollmentData.twoWeekHI) }
+      { dataPoint('Health Innovation - 4 week', enrollmentData.fourWeekHI) }
+    </div>
     )
 }
 
@@ -156,12 +195,48 @@ enrolledByProgram.map(enrollee => {
   }
 })
 
+const enrollmentData = {
+  totalYE : 0,
+  totalHI : 0,
+  oneWeekYE : 0,
+  twoWeekYE : 0,
+  fourWeekYE : 0,
+  twoWeekHI : 0,
+  fourWeekHI : 0
+}
+
+enrolledByProgram.map(enrollee => {
+  switch (enrollee.programType) {
+    case 'Health-Innovation':
+      if (enrollee.programDuration === '2 week') {
+        enrollmentData.twoWeekHI ++;
+      } else if (enrollee.programDuration === '4 week'){
+        enrollmentData.fourWeekHI ++
+      }
+        enrollmentData.totalHI ++;
+      break;
+    case 'Youth Empowerment':
+      if (enrollee.programDuration === '1 week') {
+        enrollmentData.oneWeekYE ++;
+      } else if (enrollee.programDuration === '2 week') {
+        enrollmentData.twoWeekYE ++;
+      } else if (enrollee.programDuration === '4 week') {
+        enrollmentData.fourWeekYE ++;
+      }
+        enrollmentData.totalYE ++;
+        break;
+      default:
+        break;
+  }
+})
+
   return{
     enrollmentProgram1,
     enrollmentProgram2,
     enrollmentProgram4,
     enrollmentProgram2Health,
     enrollmentProgram4Health,
+    enrollmentData,
     browser
   }
 }
