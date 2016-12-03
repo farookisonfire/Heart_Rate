@@ -6,7 +6,6 @@ const styles = require('./styles')
 const { fetchApplicants } = require('../../actions')
 const { connect } = require('react-redux')
 
-
 const AppliedButton = ({ dispatch }) =>
   <span>
     <IconButton
