@@ -1,6 +1,6 @@
 #vid-div {
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 #vid {

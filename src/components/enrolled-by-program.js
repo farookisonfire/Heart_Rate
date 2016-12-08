@@ -3,6 +3,8 @@ const { enrolledByProgramChart, enrolledByProgramTitle } = require('./enrolled-b
 const { Panel } = require('react-bootstrap')
 const { connect } = require('react-redux')
 const { panelStyle, panelWidth } = require('./styles/panel-style')
+const ByProgram = require('./by-program/types.js')
+
 
 // const UniversityCount = ({ universityCount }) =>
 // <div className = "panel panel-default" style={{marginBottom:'0'}}>
@@ -43,6 +45,7 @@ const EnrolledByProgram = ({ enrollmentProgram1, enrollmentProgram2, enrollmentP
       <Panel style={panelStyle(panelWidth(browser))} footer={enrolledByProgramTitle}>
         <div id="enrolled-by-program" style={{width: '100%', height:'300px'}}></div>
       </Panel>
+      <ByProgram />
       { dataPoint('Youth Empowerment', enrollmentData.totalYE) }
       { dataPoint('Health Innovation', enrollmentData.totalHI) }
       { dataPoint('Youth Empowerment - 1 week', enrollmentData.oneWeekYE) }
@@ -230,7 +233,7 @@ enrolledByProgram.map(enrollee => {
   }
 })
 
-  return{
+  return {
     enrollmentProgram1,
     enrollmentProgram2,
     enrollmentProgram4,
